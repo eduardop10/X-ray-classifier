@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!–- Actor: Eduardo Pereira -–>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/all.css">
+    <link rel="stylesheet" href="./CSS/result.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <ul class="logo">
+            <li><a href="/"><img width="200" src="./images/Logo.svg" alt=""></a></li>
+        </ul>
+        <nav id="principal">
+            <ul>
+                <li><a href="#">Como Usar</a></li>
+                <li><a href="#">Ferramentas e API</a></li>
+            </ul>
+            <ul>
+                <li><a href="/">Classificar Imagens</a></li>
+                <li><a href="#">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="list-elements">
+            {% for result in arrResults %}
+            <article class="card-result">
+                <img src="{{ url_for('static', filename='uploads/'+result['Name']) }}" alt="Iamgem Analisada" width="200" aria-label="Imagem Analisada">
+                <div class="card-result-info">
+                    <h1>Nome do Arquivo: <span>{{result["Name"]}}</span></h1>
+                    <ul area-label="Resultado da Análise">
+                        {% if result["Result"] == "Normal" %}
+                        <li>Resultado: <span class="normal"> {{result["Result"]}}</span></li>
+                        <li>Porcentagem de Classificação: <span>{{result['NormalProbPercent']}}%</span></li>
+                        {% else %}
+                        <li>Resultado: <span class="pathology"> {{result["Result"]}}</span></li>
+                        <li>Porcentagem de Classificação: <span>{{result['CovidProbPercent']}}%</span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <img width="200" src="./images/Logo.svg" alt="">
+    </footer>
+</body>
+
+</html>

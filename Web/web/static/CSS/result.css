@@ -1,0 +1,80 @@
+h1 {
+  font-weight: normal;
+  max-width: 400px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+main {
+  background: rgb(217, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(148, 148, 148, 1) 100%
+  );
+  flex-grow: 1;
+}
+.list-elements {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+.list-elements article {
+  gap: 10px;
+}
+.list-cards {
+  display: grid;
+  justify-content: center;
+  padding: 5%;
+  gap: 20px;
+}
+.card-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: #ececec;
+  align-items: center;
+  line-height: 2;
+  gap: 20px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+.card-result-info ul li {
+  list-style: none;
+}
+.card-result-info .normal {
+  color: green;
+}
+.card-result-info .pathology {
+  color: red;
+}
+.card-result-info ul li,
+.card-result-info h1 {
+  font-size: 1.25rem;
+}
+@media (max-width: 860px) {
+  .card-result {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+  }
+  .card-result-info ul li,
+  .card-result-info h1 {
+    font-size: 1.1rem;
+  }
+  .card-result-info ul li,
+  .card-result-info h1 {
+    border-bottom: 1px solid #adadad;
+    padding: 10px;
+  }
+}

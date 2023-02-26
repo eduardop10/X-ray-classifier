@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!–- Actor: Eduardo Pereira -–>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/all.css">
+    <link rel="stylesheet" href="./CSS/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+        <ul class="logo">
+            <li><a href="/"><img width="200" src="./images/Logo.svg" alt=""></a></li>
+        </ul>
+        <nav id="principal">
+            <ul>
+                <li><a href="#">Como Usar</a></li>
+                <li><a href="#">Ferramentas e API</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Classificar Imagens</a></li>
+                <li><a href="#">Github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container-main">
+            <h1 id="text-insert">Insira a Imagem a Ser Processada</h1>
+            <div>
+                <section class="upload-card" aria-labelledby="text-insert">
+                    <label for="isPath" id="directory">
+                        <input id="isPath" type="checkbox" onclick='change()'>
+                        <h4 class="path" >Imagem</h4>
+                        <h4 class="files">Pasta<span style="visibility: hidden;">-</span> Com <span style="visibility: hidden;">-</span> Imagens</h4>
+                    </label>
+                    <!--<label for="form-button"><-->
+                    <div class="upload-area">
+                        <form id="form" action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+                            <input type="file" id="form-button" name="file" multiple directory="" webkitdirectory="" moxdirectory="" onchange="form.submit()" />
+                        </form>
+                        <img src="./images/folder.svg" aria-labelledby="#text-insert">
+                        <button id="upload-individual"><img src="./images/photo-icon.svg" aria-labelledby="#upload-individual">
+                            <p>Carregar Imagens</p>
+                        </button>
+                        <!--</label>-->
+                        <p id="arraste">Ou arraste os Arquivos</p>
+                    </div>
+
+                    
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="#header"><img width="200" src="./images/Logo.svg" alt=""></a>
+    </footer>
+    
+    <script>
+    function change(){
+document.getElementById("form").outerHTML.indexOf("multiple") != -1 ? document.getElementById("form").outerHTML="<form id=\"form\" action=\"http://localhost:5000/uploader\" method=\"POST\" enctype=\"multipart/form-data\"> <input type=\"file\" id=\"form-button\" name=\"file\" onchange=\"form.submit()\"> </form>" : document.getElementById("form").outerHTML="<form id=\"form\" action=\"http://localhost:5000/uploader\" method=\"POST\" enctype=\"multipart/form-data\"><input type=\"file\" id=\"form-button\" name=\"file\" multiple=\"\" directory=\"\" webkitdirectory=\"\"moxdirectory=\"\" onchange=\"form.submit()\"></form>"
+document.getElementsByTagName("img")[1].src.indexOf("photo-icon-3d") != -1 ? document.getElementsByTagName("img")[1].src= document.getElementsByTagName("img")[1].src.replace("photo-icon-3d","folder") : document.getElementsByTagName("img")[1].src= document.getElementsByTagName("img")[1].src.replace("folder","photo-icon-3d")
+    }
+    </script>
+</body>
+
+</html>

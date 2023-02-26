@@ -1,0 +1,134 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+#form #form-button {
+  width: 100%;
+  height: 100%;
+}
+main {
+  display: grid;
+  justify-content: center;
+  background: rgb(217, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(148, 148, 148, 1) 100%
+  );
+  justify-items: center;
+  padding: 5%;
+  flex-grow: 1;
+  align-content: center;
+}
+.container-main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+}
+
+main h1 {
+  padding: 20px;
+  font-size: 3.75rem;
+  text-align: center;
+  max-width: 1000px;
+}
+.upload-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  justify-self: center;
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.upload-card div {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: min(10vw, 80px);
+  justify-items: center;
+  position: relative;
+}
+.upload-area img {
+  justify-self: center;
+}
+.upload-area button {
+  background-color: #4771dc;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 1.4rem;
+  display: flex;
+  gap: 0.2rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.upload-card #directory #isPath {
+  display: none;
+}
+
+.upload-card #directory .files {
+  display: none;
+}
+
+.upload-card #directory #isPath:checked ~ .files {
+  display: block;
+}
+.upload-card #directory #isPath:checked + .path {
+  display: none;
+}
+.upload-card #directory #isPath:checked ~ .upload-area #form {
+  display: none;
+}
+.upload-card #directory {
+  word-break: break-all;
+  padding: 20px;
+  border: none;
+  background-color: #4771dc;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: 600;
+  order: 1;
+}
+.upload-card #directory:hover {
+  background-color: #85a0e1;
+  transition: 0.5s;
+}
+.upload-card #arraste {
+  display: flex;
+  justify-items: center;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 20%;
+  }
+  main h1 {
+    font-size: 2rem;
+  }
+  .upload-card #arraste {
+    display: none;
+  }
+  .upload-area button {
+    font-size: 1.1rem;
+  }
+}
