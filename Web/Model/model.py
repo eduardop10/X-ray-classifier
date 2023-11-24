@@ -1,4 +1,4 @@
-Actor: Eduardo Pereira
+#Actor: Eduardo Pereira
 from tensorflow.keras.models import load_model
 from cv2 import cvtColor, imread, resize,COLOR_BGR2RGB
 from numpy import array
