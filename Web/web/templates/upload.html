@@ -39,7 +39,7 @@
                     </label>
                     <!--<label for="form-button"><-->
                     <div class="upload-area">
-                        <form id="form" action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="" method="POST" enctype="multipart/form-data">
                             <input type="file" id="form-button" name="file" multiple directory="" webkitdirectory="" moxdirectory="" onchange="form.submit()" />
                         </form>
                         <img src="./images/folder.svg" aria-labelledby="#text-insert">
@@ -60,10 +60,29 @@
     </footer>
     
     <script>
-    function change(){
-document.getElementById("form").outerHTML.indexOf("multiple") != -1 ? document.getElementById("form").outerHTML="<form id=\"form\" action=\"http://localhost:5000/uploader\" method=\"POST\" enctype=\"multipart/form-data\"> <input type=\"file\" id=\"form-button\" name=\"file\" onchange=\"form.submit()\"> </form>" : document.getElementById("form").outerHTML="<form id=\"form\" action=\"http://localhost:5000/uploader\" method=\"POST\" enctype=\"multipart/form-data\"><input type=\"file\" id=\"form-button\" name=\"file\" multiple=\"\" directory=\"\" webkitdirectory=\"\"moxdirectory=\"\" onchange=\"form.submit()\"></form>"
-document.getElementsByTagName("img")[1].src.indexOf("photo-icon-3d") != -1 ? document.getElementsByTagName("img")[1].src= document.getElementsByTagName("img")[1].src.replace("photo-icon-3d","folder") : document.getElementsByTagName("img")[1].src= document.getElementsByTagName("img")[1].src.replace("folder","photo-icon-3d")
-    }
+
+         // Obtém o URL atual do navegador
+         var currentUrl = window.location.href;
+
+        // Atualiza a ação do formulário com o URL atual do ngrok
+        document.getElementById("form").action = currentUrl + "uploader";
+
+        function change() {
+    // Obtém o URL atual do navegador
+    var currentUrl = window.location.href;
+
+    // Atualiza a ação do formulário com o URL atual do ngrok
+    var formAction = currentUrl + "/uploader";
+    document.getElementById("form").outerHTML.indexOf("multiple") != -1 ? 
+        document.getElementById("form").outerHTML = "<form id=\"form\" action=\"" + formAction + "\" method=\"POST\" enctype=\"multipart/form-data\"> <input type=\"file\" id=\"form-button\" name=\"file\" onchange=\"form.submit()\"> </form>" : 
+        document.getElementById("form").outerHTML = "<form id=\"form\" action=\"" + formAction + "\" method=\"POST\" enctype=\"multipart/form-data\"><input type=\"file\" id=\"form-button\" name=\"file\" multiple=\"\" directory=\"\" webkitdirectory=\"\" moxdirectory=\"\" onchange=\"form.submit()\"></form>";
+
+    // Altera dinamicamente a fonte da imagem
+    var imgSrc = document.getElementsByTagName("img")[1].src;
+    imgSrc.indexOf("photo-icon-3d") != -1 ? 
+        document.getElementsByTagName("img")[1].src = imgSrc.replace("photo-icon-3d", "folder") : 
+        document.getElementsByTagName("img")[1].src = imgSrc.replace("folder", "photo-icon-3d");
+}
     </script>
 </body>
 
